@@ -1,0 +1,3 @@
+t_fox_di_tools_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: TFoxDiToolsBundle:Default:index }
