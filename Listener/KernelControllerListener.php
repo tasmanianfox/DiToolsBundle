@@ -5,6 +5,7 @@ use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use TFox\DiToolsBundle\Controller\DiToolsInjectableInterface;
 use TFox\DiToolsBundle\Annotation\Inject;
+use TFox\DiToolsBundle\Exception\ServiceNotFoundException;
 
 class KernelControllerListener {
 
@@ -40,8 +41,11 @@ class KernelControllerListener {
 				foreach($propertyAnnotations as $propertyAnnotation) {
 					// \TFox\DiToolsBundle\Annotation\Inject : inject a specified service here
 					if($propertyAnnotation instanceof Inject) {
-						$serviceName = $propertyAnnotation->value;						
-						$service = $this->container->get($serviceName);
+						$serviceName = $propertyAnnotation->value;
+						if($this->container->has($serviceName))						
+							$service = $this->container->get($serviceName);
+						else
+							throw new ServiceNotFoundException($serviceName);
 						
 						$property->setAccessible(true);
 						$property->setValue($controller, $service);
