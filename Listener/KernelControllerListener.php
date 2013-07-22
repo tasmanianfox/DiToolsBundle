@@ -39,7 +39,7 @@ class KernelControllerListener {
 				/* @var $property \ReflectionProperty */
 				$propertyAnnotations = $this->annotationReader->getPropertyAnnotations($property);
 				foreach($propertyAnnotations as $propertyAnnotation) {
-					// \TFox\DiToolsBundle\Annotation\Inject : inject a specified service here
+					// Annotation class: \TFox\DiToolsBundle\Annotation\Inject. Injects a specified service here
 					if($propertyAnnotation instanceof Inject) {
 						$serviceName = $propertyAnnotation->value;
 						if($this->container->has($serviceName))						
