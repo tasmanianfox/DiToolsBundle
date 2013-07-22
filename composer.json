@@ -1,0 +1,33 @@
+{
+    "name": "tfox/di-tools-bundle",
+    "type": "symfony-bundle",
+    "description": "Extended Depencency Injection features such as usage of injected into super class dependencies in sub classes, etc",
+    "keywords": ["Dependency Injection", "DI"],
+    "homepage": "http://github.com/tasmanianfox/DiToolsBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergei Beljakov",
+            "email": "sergei.beljakov@tfox.eu"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": "~2.1"
+    },
+    "require-dev": {
+        "symfony/class-loader": "*",
+        "symfony/yaml": "*",
+        "symfony/browser-kit": "*",
+        "symfony/security-bundle": "*",
+        "sensio/framework-extra-bundle": "*"
+    },
+    "autoload": {
+        "psr-0": { "TFox\\DiToolsBundle": "" }
+    },
+    "target-dir": "TFox/DiToolsBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
